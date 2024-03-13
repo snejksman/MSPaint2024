@@ -150,8 +150,7 @@ namespace MSPaint2024
                 Pen lobjPero;
                 lobjPero = new Pen(mobjForeColor);
 
-                Brush lobjStetec;
-   //lobjStetec = new Brush(mobjForeColor);
+
                 // vybrat co kreslim
                 switch (menActualTool)
                 {
@@ -162,12 +161,11 @@ namespace MSPaint2024
                         break;
 
                     case enTools.Box:
-     // mobjGrafika.FillRectangle(, mobjDrawingCoordsStart, mobjDrawingCoordsEnd);
                         break;
-
+                    
                 }
             }
-            catch 
+            catch (Exception ex)
             {
                 
             }
@@ -199,6 +197,10 @@ namespace MSPaint2024
             {
               
             }
+        }
+        private void btClick_Nastroj(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

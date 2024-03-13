@@ -29,21 +29,29 @@
         private void InitializeComponent()
         {
             this.pbPlatno = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.ssBottom = new System.Windows.Forms.StatusStrip();
             this.tsSouradniceMysi = new System.Windows.Forms.ToolStripStatusLabel();
             this.gpVyberBarvy = new System.Windows.Forms.GroupBox();
-            this.pnColorYellow = new System.Windows.Forms.Panel();
-            this.pnColorBlue = new System.Windows.Forms.Panel();
             this.pnColorRed = new System.Windows.Forms.Panel();
-            this.pnColorGreen = new System.Windows.Forms.Panel();
-            this.pnColorBlack = new System.Windows.Forms.Panel();
+            this.pnColorBrown = new System.Windows.Forms.Panel();
+            this.pnColorOrange = new System.Windows.Forms.Panel();
             this.pnColorWhite = new System.Windows.Forms.Panel();
+            this.pnColorYellow = new System.Windows.Forms.Panel();
+            this.pnColorMagenta = new System.Windows.Forms.Panel();
+            this.pnColorBlue = new System.Windows.Forms.Panel();
+            this.pnColorCyan = new System.Windows.Forms.Panel();
+            this.pnColorGreen = new System.Windows.Forms.Panel();
             this.pnBackColor = new System.Windows.Forms.Panel();
+            this.pnColorDarkGrey = new System.Windows.Forms.Panel();
             this.pnForeColor = new System.Windows.Forms.Panel();
+            this.pnColorLightGrey = new System.Windows.Forms.Panel();
+            this.pnColorBlack = new System.Windows.Forms.Panel();
+            this.gpVyberNastroje = new System.Windows.Forms.GroupBox();
+            this.btLine = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlatno)).BeginInit();
             this.ssBottom.SuspendLayout();
             this.gpVyberBarvy.SuspendLayout();
+            this.gpVyberNastroje.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbPlatno
@@ -58,16 +66,6 @@
             this.pbPlatno.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbPlatno_MouseDown);
             this.pbPlatno.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbPlatno_MouseMove);
             this.pbPlatno.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbPlatno_MouseUp);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(998, 295);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 63);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ssBottom
             // 
@@ -89,98 +87,178 @@
             // 
             // gpVyberBarvy
             // 
-            this.gpVyberBarvy.Controls.Add(this.pnColorYellow);
-            this.gpVyberBarvy.Controls.Add(this.pnColorBlue);
             this.gpVyberBarvy.Controls.Add(this.pnColorRed);
-            this.gpVyberBarvy.Controls.Add(this.pnColorGreen);
-            this.gpVyberBarvy.Controls.Add(this.pnColorBlack);
+            this.gpVyberBarvy.Controls.Add(this.pnColorBrown);
+            this.gpVyberBarvy.Controls.Add(this.pnColorOrange);
             this.gpVyberBarvy.Controls.Add(this.pnColorWhite);
+            this.gpVyberBarvy.Controls.Add(this.pnColorYellow);
+            this.gpVyberBarvy.Controls.Add(this.pnColorMagenta);
+            this.gpVyberBarvy.Controls.Add(this.pnColorBlue);
+            this.gpVyberBarvy.Controls.Add(this.pnColorCyan);
+            this.gpVyberBarvy.Controls.Add(this.pnColorGreen);
             this.gpVyberBarvy.Controls.Add(this.pnBackColor);
+            this.gpVyberBarvy.Controls.Add(this.pnColorDarkGrey);
             this.gpVyberBarvy.Controls.Add(this.pnForeColor);
+            this.gpVyberBarvy.Controls.Add(this.pnColorLightGrey);
+            this.gpVyberBarvy.Controls.Add(this.pnColorBlack);
             this.gpVyberBarvy.Location = new System.Drawing.Point(970, 12);
             this.gpVyberBarvy.Name = "gpVyberBarvy";
-            this.gpVyberBarvy.Size = new System.Drawing.Size(255, 135);
+            this.gpVyberBarvy.Size = new System.Drawing.Size(255, 120);
             this.gpVyberBarvy.TabIndex = 3;
             this.gpVyberBarvy.TabStop = false;
             this.gpVyberBarvy.Text = "Výběr barvy";
-            // 
-            // pnColorYellow
-            // 
-            this.pnColorYellow.BackColor = System.Drawing.Color.Yellow;
-            this.pnColorYellow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnColorYellow.Location = new System.Drawing.Point(164, 52);
-            this.pnColorYellow.Name = "pnColorYellow";
-            this.pnColorYellow.Size = new System.Drawing.Size(22, 20);
-            this.pnColorYellow.TabIndex = 11;
-            this.pnColorYellow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
-            // 
-            // pnColorBlue
-            // 
-            this.pnColorBlue.BackColor = System.Drawing.Color.Blue;
-            this.pnColorBlue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnColorBlue.Location = new System.Drawing.Point(136, 52);
-            this.pnColorBlue.Name = "pnColorBlue";
-            this.pnColorBlue.Size = new System.Drawing.Size(22, 20);
-            this.pnColorBlue.TabIndex = 10;
-            this.pnColorBlue.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
             // 
             // pnColorRed
             // 
             this.pnColorRed.BackColor = System.Drawing.Color.Red;
             this.pnColorRed.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnColorRed.Location = new System.Drawing.Point(220, 28);
+            this.pnColorRed.Location = new System.Drawing.Point(220, 80);
             this.pnColorRed.Name = "pnColorRed";
             this.pnColorRed.Size = new System.Drawing.Size(22, 20);
-            this.pnColorRed.TabIndex = 9;
-            this.pnColorRed.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
+            this.pnColorRed.TabIndex = 13;
             // 
-            // pnColorGreen
+            // pnColorBrown
             // 
-            this.pnColorGreen.BackColor = System.Drawing.Color.ForestGreen;
-            this.pnColorGreen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnColorGreen.Location = new System.Drawing.Point(192, 28);
-            this.pnColorGreen.Name = "pnColorGreen";
-            this.pnColorGreen.Size = new System.Drawing.Size(22, 20);
-            this.pnColorGreen.TabIndex = 8;
-            this.pnColorGreen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
+            this.pnColorBrown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.pnColorBrown.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnColorBrown.Location = new System.Drawing.Point(192, 80);
+            this.pnColorBrown.Name = "pnColorBrown";
+            this.pnColorBrown.Size = new System.Drawing.Size(22, 20);
+            this.pnColorBrown.TabIndex = 13;
             // 
-            // pnColorBlack
+            // pnColorOrange
             // 
-            this.pnColorBlack.BackColor = System.Drawing.Color.Black;
-            this.pnColorBlack.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnColorBlack.Location = new System.Drawing.Point(164, 28);
-            this.pnColorBlack.Name = "pnColorBlack";
-            this.pnColorBlack.Size = new System.Drawing.Size(22, 20);
-            this.pnColorBlack.TabIndex = 7;
-            this.pnColorBlack.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
+            this.pnColorOrange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.pnColorOrange.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnColorOrange.Location = new System.Drawing.Point(164, 80);
+            this.pnColorOrange.Name = "pnColorOrange";
+            this.pnColorOrange.Size = new System.Drawing.Size(22, 20);
+            this.pnColorOrange.TabIndex = 13;
             // 
             // pnColorWhite
             // 
             this.pnColorWhite.BackColor = System.Drawing.Color.White;
             this.pnColorWhite.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnColorWhite.Location = new System.Drawing.Point(136, 28);
+            this.pnColorWhite.Location = new System.Drawing.Point(220, 28);
             this.pnColorWhite.Name = "pnColorWhite";
             this.pnColorWhite.Size = new System.Drawing.Size(22, 20);
             this.pnColorWhite.TabIndex = 6;
             this.pnColorWhite.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
             // 
+            // pnColorYellow
+            // 
+            this.pnColorYellow.BackColor = System.Drawing.Color.Yellow;
+            this.pnColorYellow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnColorYellow.Location = new System.Drawing.Point(136, 80);
+            this.pnColorYellow.Name = "pnColorYellow";
+            this.pnColorYellow.Size = new System.Drawing.Size(22, 20);
+            this.pnColorYellow.TabIndex = 12;
+            // 
+            // pnColorMagenta
+            // 
+            this.pnColorMagenta.BackColor = System.Drawing.Color.Fuchsia;
+            this.pnColorMagenta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnColorMagenta.Location = new System.Drawing.Point(220, 54);
+            this.pnColorMagenta.Name = "pnColorMagenta";
+            this.pnColorMagenta.Size = new System.Drawing.Size(22, 20);
+            this.pnColorMagenta.TabIndex = 12;
+            // 
+            // pnColorBlue
+            // 
+            this.pnColorBlue.BackColor = System.Drawing.Color.Blue;
+            this.pnColorBlue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnColorBlue.Location = new System.Drawing.Point(192, 54);
+            this.pnColorBlue.Name = "pnColorBlue";
+            this.pnColorBlue.Size = new System.Drawing.Size(22, 20);
+            this.pnColorBlue.TabIndex = 12;
+            // 
+            // pnColorCyan
+            // 
+            this.pnColorCyan.BackColor = System.Drawing.Color.Cyan;
+            this.pnColorCyan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnColorCyan.Location = new System.Drawing.Point(164, 54);
+            this.pnColorCyan.Name = "pnColorCyan";
+            this.pnColorCyan.Size = new System.Drawing.Size(22, 20);
+            this.pnColorCyan.TabIndex = 11;
+            this.pnColorCyan.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
+            // 
+            // pnColorGreen
+            // 
+            this.pnColorGreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.pnColorGreen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnColorGreen.Location = new System.Drawing.Point(136, 54);
+            this.pnColorGreen.Name = "pnColorGreen";
+            this.pnColorGreen.Size = new System.Drawing.Size(22, 20);
+            this.pnColorGreen.TabIndex = 10;
+            this.pnColorGreen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
+            // 
             // pnBackColor
             // 
             this.pnBackColor.BackColor = System.Drawing.Color.White;
             this.pnBackColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnBackColor.Location = new System.Drawing.Point(71, 28);
+            this.pnBackColor.Location = new System.Drawing.Point(70, 28);
             this.pnBackColor.Name = "pnBackColor";
-            this.pnBackColor.Size = new System.Drawing.Size(46, 44);
+            this.pnBackColor.Size = new System.Drawing.Size(47, 46);
             this.pnBackColor.TabIndex = 5;
+            // 
+            // pnColorDarkGrey
+            // 
+            this.pnColorDarkGrey.BackColor = System.Drawing.Color.Gray;
+            this.pnColorDarkGrey.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnColorDarkGrey.Location = new System.Drawing.Point(164, 28);
+            this.pnColorDarkGrey.Name = "pnColorDarkGrey";
+            this.pnColorDarkGrey.Size = new System.Drawing.Size(22, 20);
+            this.pnColorDarkGrey.TabIndex = 9;
+            this.pnColorDarkGrey.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
             // 
             // pnForeColor
             // 
             this.pnForeColor.BackColor = System.Drawing.Color.Black;
             this.pnForeColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnForeColor.Location = new System.Drawing.Point(18, 28);
+            this.pnForeColor.Location = new System.Drawing.Point(15, 28);
             this.pnForeColor.Name = "pnForeColor";
-            this.pnForeColor.Size = new System.Drawing.Size(47, 44);
+            this.pnForeColor.Size = new System.Drawing.Size(49, 46);
             this.pnForeColor.TabIndex = 4;
+            // 
+            // pnColorLightGrey
+            // 
+            this.pnColorLightGrey.BackColor = System.Drawing.Color.LightGray;
+            this.pnColorLightGrey.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnColorLightGrey.Location = new System.Drawing.Point(192, 28);
+            this.pnColorLightGrey.Name = "pnColorLightGrey";
+            this.pnColorLightGrey.Size = new System.Drawing.Size(22, 20);
+            this.pnColorLightGrey.TabIndex = 8;
+            this.pnColorLightGrey.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
+            // 
+            // pnColorBlack
+            // 
+            this.pnColorBlack.BackColor = System.Drawing.Color.Black;
+            this.pnColorBlack.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnColorBlack.Location = new System.Drawing.Point(136, 28);
+            this.pnColorBlack.Name = "pnColorBlack";
+            this.pnColorBlack.Size = new System.Drawing.Size(22, 20);
+            this.pnColorBlack.TabIndex = 7;
+            this.pnColorBlack.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
+            // 
+            // gpVyberNastroje
+            // 
+            this.gpVyberNastroje.Controls.Add(this.btLine);
+            this.gpVyberNastroje.Location = new System.Drawing.Point(970, 145);
+            this.gpVyberNastroje.Name = "gpVyberNastroje";
+            this.gpVyberNastroje.Size = new System.Drawing.Size(241, 65);
+            this.gpVyberNastroje.TabIndex = 4;
+            this.gpVyberNastroje.TabStop = false;
+            this.gpVyberNastroje.Text = "Výběr Nástroje";
+            // 
+            // btLine
+            // 
+            this.btLine.BackColor = System.Drawing.Color.White;
+            this.btLine.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btLine.Location = new System.Drawing.Point(15, 19);
+            this.btLine.Name = "btLine";
+            this.btLine.Size = new System.Drawing.Size(37, 37);
+            this.btLine.TabIndex = 5;
+            this.btLine.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -188,9 +266,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1237, 575);
+            this.Controls.Add(this.gpVyberNastroje);
             this.Controls.Add(this.gpVyberBarvy);
             this.Controls.Add(this.ssBottom);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pbPlatno);
             this.Name = "Form1";
             this.Text = "MS Paint 2024";
@@ -200,6 +278,7 @@
             this.ssBottom.ResumeLayout(false);
             this.ssBottom.PerformLayout();
             this.gpVyberBarvy.ResumeLayout(false);
+            this.gpVyberNastroje.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,18 +287,25 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pbPlatno;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.StatusStrip ssBottom;
         private System.Windows.Forms.ToolStripStatusLabel tsSouradniceMysi;
         private System.Windows.Forms.GroupBox gpVyberBarvy;
         private System.Windows.Forms.Panel pnColorWhite;
         private System.Windows.Forms.Panel pnBackColor;
         private System.Windows.Forms.Panel pnForeColor;
-        private System.Windows.Forms.Panel pnColorYellow;
-        private System.Windows.Forms.Panel pnColorBlue;
-        private System.Windows.Forms.Panel pnColorRed;
+        private System.Windows.Forms.Panel pnColorCyan;
         private System.Windows.Forms.Panel pnColorGreen;
+        private System.Windows.Forms.Panel pnColorDarkGrey;
+        private System.Windows.Forms.Panel pnColorLightGrey;
         private System.Windows.Forms.Panel pnColorBlack;
+        private System.Windows.Forms.Panel pnColorRed;
+        private System.Windows.Forms.Panel pnColorBrown;
+        private System.Windows.Forms.Panel pnColorOrange;
+        private System.Windows.Forms.Panel pnColorYellow;
+        private System.Windows.Forms.Panel pnColorMagenta;
+        private System.Windows.Forms.Panel pnColorBlue;
+        private System.Windows.Forms.GroupBox gpVyberNastroje;
+        private System.Windows.Forms.Button btLine;
     }
 }
 
