@@ -16,7 +16,7 @@ namespace MSPaint2024
         Graphics mobjGrafika;
         
         // nastroj na kresleni
-        enum enTools { Line, Box, Circle }
+        enum enTools { Line, Rectangle, Ellipse, Pen }
         enTools menActualTool;
         bool mbjImDrawing;
 
@@ -31,6 +31,10 @@ namespace MSPaint2024
         // rozmery obdelniku
         Rectangle mobjDrawingRectangle;
         Size mobjDrawingSize;
+
+        // promenne pro volne kresleni
+        Rectangle mobjDrawingFreeRectangle;
+        Size mobjDrawingFreeSize;
 
         //
         // konstruktor
@@ -65,6 +69,17 @@ namespace MSPaint2024
             {
                 // souradnice mysi do statusu
                 tsSouradniceMysi.Text = "x:" + e.X.ToString() + " y:" + e.Y.ToString();
+
+                // volne kresleni
+                if (menActualTool == enTools.Pen)
+                { 
+                    if (mbjImDrawing == true)
+                    {
+                        mobjDrawingCoordsStart.X = e.X;
+                        mobjDrawingCoordsStart.Y = e.Y;
+                        NakresliObjekt();
+                    }
+                }
             }
             catch(Exception ex) 
             {
@@ -110,6 +125,7 @@ namespace MSPaint2024
 
                     NakresliObjekt();
 
+                    mbjImDrawing = false;
                 }
             }
             catch (Exception ex)
@@ -128,13 +144,14 @@ namespace MSPaint2024
             {
                 Pen lobjPero;
                 lobjPero = new Pen(mobjForeColor);
+                lobjPero.Width = tbWidth.Value;
 
                 SolidBrush lobjStetecForeColor;
                 lobjStetecForeColor = new SolidBrush(mobjForeColor);
 
                 Pen lobjPeroBackColor;
                 lobjPeroBackColor = new Pen(mobjBackColor);
-
+                lobjPeroBackColor.Width = tbWidth.Value;
 
                 // vybrat co kreslim
                 switch (menActualTool)
@@ -145,7 +162,7 @@ namespace MSPaint2024
                          mobjGrafika.DrawLine(lobjPero, mobjDrawingCoordsStart, mobjDrawingCoordsEnd);
                         break;
 
-                    case enTools.Box:
+                    case enTools.Rectangle:
 
                         // vypln obdelnik
                         mobjDrawingSize.Width = mobjDrawingCoordsEnd.X - mobjDrawingCoordsStart.X;
@@ -153,6 +170,23 @@ namespace MSPaint2024
                         mobjDrawingRectangle = new Rectangle(mobjDrawingCoordsStart, mobjDrawingSize);
                         mobjGrafika.FillRectangle(lobjStetecForeColor, mobjDrawingRectangle);
                         mobjGrafika.DrawRectangle(lobjPeroBackColor, mobjDrawingRectangle);
+                        break;
+
+                    case enTools.Ellipse:
+
+                        // vypln elipsu
+                        mobjDrawingSize.Width = mobjDrawingCoordsEnd.X - mobjDrawingCoordsStart.X;
+                        mobjDrawingSize.Height = mobjDrawingCoordsEnd.Y - mobjDrawingCoordsStart.Y;
+                        mobjDrawingRectangle = new Rectangle(mobjDrawingCoordsStart, mobjDrawingSize);
+                        mobjGrafika.FillEllipse(lobjStetecForeColor, mobjDrawingRectangle);
+                        mobjGrafika.DrawEllipse(lobjPeroBackColor, mobjDrawingRectangle);
+                        break;
+
+                    case enTools.Pen:
+                        mobjDrawingFreeSize.Width = tbWidth.Value;
+                        mobjDrawingFreeSize.Height = tbWidth.Value;
+                        mobjDrawingFreeRectangle = new Rectangle(mobjDrawingCoordsStart, mobjDrawingFreeSize);
+                        mobjGrafika.FillEllipse(lobjStetecForeColor, mobjDrawingFreeRectangle);
                         break;
                     
                 }
@@ -215,9 +249,17 @@ namespace MSPaint2024
                     break;
 
                 case "Rectangle":
-                    menActualTool = enTools.Box;
+                    menActualTool = enTools.Rectangle;
                     break;
-                    
+
+                case "Pen":
+                    menActualTool = enTools.Pen;
+                    break;
+
+                case "Ellipse":
+                    menActualTool = enTools.Ellipse;
+                    break;
+
             }
 
         }

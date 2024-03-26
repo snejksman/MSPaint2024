@@ -49,10 +49,16 @@
             this.gpVyberNastroje = new System.Windows.Forms.GroupBox();
             this.btRectangle = new System.Windows.Forms.Button();
             this.btLine = new System.Windows.Forms.Button();
+            this.btPen = new System.Windows.Forms.Button();
+            this.gpWidth = new System.Windows.Forms.GroupBox();
+            this.tbWidth = new System.Windows.Forms.TrackBar();
+            this.btEllipse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlatno)).BeginInit();
             this.ssBottom.SuspendLayout();
             this.gpVyberBarvy.SuspendLayout();
             this.gpVyberNastroje.SuspendLayout();
+            this.gpWidth.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbWidth)).BeginInit();
             this.SuspendLayout();
             // 
             // pbPlatno
@@ -72,7 +78,7 @@
             // 
             this.ssBottom.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsSouradniceMysi});
-            this.ssBottom.Location = new System.Drawing.Point(0, 553);
+            this.ssBottom.Location = new System.Drawing.Point(0, 559);
             this.ssBottom.Name = "ssBottom";
             this.ssBottom.Size = new System.Drawing.Size(1237, 22);
             this.ssBottom.TabIndex = 2;
@@ -247,11 +253,13 @@
             // 
             // gpVyberNastroje
             // 
+            this.gpVyberNastroje.Controls.Add(this.btEllipse);
+            this.gpVyberNastroje.Controls.Add(this.btPen);
             this.gpVyberNastroje.Controls.Add(this.btRectangle);
             this.gpVyberNastroje.Controls.Add(this.btLine);
             this.gpVyberNastroje.Location = new System.Drawing.Point(970, 145);
             this.gpVyberNastroje.Name = "gpVyberNastroje";
-            this.gpVyberNastroje.Size = new System.Drawing.Size(241, 84);
+            this.gpVyberNastroje.Size = new System.Drawing.Size(241, 132);
             this.gpVyberNastroje.TabIndex = 4;
             this.gpVyberNastroje.TabStop = false;
             this.gpVyberNastroje.Text = "Výběr Nástroje";
@@ -260,7 +268,7 @@
             // 
             this.btRectangle.BackColor = System.Drawing.Color.White;
             this.btRectangle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btRectangle.Location = new System.Drawing.Point(85, 28);
+            this.btRectangle.Location = new System.Drawing.Point(15, 71);
             this.btRectangle.Name = "btRectangle";
             this.btRectangle.Size = new System.Drawing.Size(64, 37);
             this.btRectangle.TabIndex = 6;
@@ -280,12 +288,58 @@
             this.btLine.UseVisualStyleBackColor = false;
             this.btLine.Click += new System.EventHandler(this.btTool_Click);
             // 
+            // btPen
+            // 
+            this.btPen.BackColor = System.Drawing.Color.White;
+            this.btPen.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btPen.Location = new System.Drawing.Point(85, 28);
+            this.btPen.Name = "btPen";
+            this.btPen.Size = new System.Drawing.Size(64, 37);
+            this.btPen.TabIndex = 7;
+            this.btPen.Text = "Pen";
+            this.btPen.UseVisualStyleBackColor = false;
+            this.btPen.Click += new System.EventHandler(this.btTool_Click);
+            // 
+            // gpWidth
+            // 
+            this.gpWidth.Controls.Add(this.tbWidth);
+            this.gpWidth.Location = new System.Drawing.Point(970, 283);
+            this.gpWidth.Name = "gpWidth";
+            this.gpWidth.Size = new System.Drawing.Size(230, 51);
+            this.gpWidth.TabIndex = 5;
+            this.gpWidth.TabStop = false;
+            this.gpWidth.Text = "Šířka";
+            // 
+            // tbWidth
+            // 
+            this.tbWidth.LargeChange = 1;
+            this.tbWidth.Location = new System.Drawing.Point(7, 20);
+            this.tbWidth.Maximum = 20;
+            this.tbWidth.Minimum = 2;
+            this.tbWidth.Name = "tbWidth";
+            this.tbWidth.Size = new System.Drawing.Size(223, 45);
+            this.tbWidth.TabIndex = 0;
+            this.tbWidth.Value = 2;
+            // 
+            // btEllipse
+            // 
+            this.btEllipse.BackColor = System.Drawing.Color.White;
+            this.btEllipse.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btEllipse.Location = new System.Drawing.Point(85, 71);
+            this.btEllipse.Name = "btEllipse";
+            this.btEllipse.Size = new System.Drawing.Size(64, 37);
+            this.btEllipse.TabIndex = 8;
+            this.btEllipse.Text = "Ellipse";
+            this.btEllipse.UseVisualStyleBackColor = false;
+            this.btEllipse.Click += new System.EventHandler(this.btTool_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(1237, 575);
+            this.ClientSize = new System.Drawing.Size(1237, 581);
+            this.Controls.Add(this.gpWidth);
             this.Controls.Add(this.gpVyberNastroje);
             this.Controls.Add(this.gpVyberBarvy);
             this.Controls.Add(this.ssBottom);
@@ -298,6 +352,9 @@
             this.ssBottom.PerformLayout();
             this.gpVyberBarvy.ResumeLayout(false);
             this.gpVyberNastroje.ResumeLayout(false);
+            this.gpWidth.ResumeLayout(false);
+            this.gpWidth.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbWidth)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,6 +383,10 @@
         private System.Windows.Forms.GroupBox gpVyberNastroje;
         private System.Windows.Forms.Button btLine;
         private System.Windows.Forms.Button btRectangle;
+        private System.Windows.Forms.Button btPen;
+        private System.Windows.Forms.GroupBox gpWidth;
+        private System.Windows.Forms.TrackBar tbWidth;
+        private System.Windows.Forms.Button btEllipse;
     }
 }
 
