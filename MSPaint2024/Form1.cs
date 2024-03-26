@@ -28,6 +28,10 @@ namespace MSPaint2024
         Point mobjDrawingCoordsStart;
         Point mobjDrawingCoordsEnd;
 
+        // rozmery obdelniku
+        Rectangle mobjDrawingRectangle;
+        Size mobjDrawingSize;
+
         //
         // konstruktor
         //
@@ -52,31 +56,6 @@ namespace MSPaint2024
             mobjGrafika = pbPlatno.CreateGraphics();
         }
 
-        //
-        // test tlacitko  - smazat
-        //
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Pen tuzka = new Pen(Color.ForestGreen, 3);
-            mobjGrafika.DrawLine(Pens.Aqua, 45, 87, 620, 540);
-
-            mobjGrafika.FillEllipse(Brushes.Bisque, 200, 200, 200, 200);
-        }
-
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void ssBottom_MouseMove(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void Form1_MouseMove(object sender, MouseEventArgs e)
-        {
-
-        }
         //
         // souradnice mysi na platnu
         //
@@ -150,6 +129,12 @@ namespace MSPaint2024
                 Pen lobjPero;
                 lobjPero = new Pen(mobjForeColor);
 
+                SolidBrush lobjStetecForeColor;
+                lobjStetecForeColor = new SolidBrush(mobjForeColor);
+
+                Pen lobjPeroBackColor;
+                lobjPeroBackColor = new Pen(mobjBackColor);
+
 
                 // vybrat co kreslim
                 switch (menActualTool)
@@ -161,6 +146,13 @@ namespace MSPaint2024
                         break;
 
                     case enTools.Box:
+
+                        // vypln obdelnik
+                        mobjDrawingSize.Width = mobjDrawingCoordsEnd.X - mobjDrawingCoordsStart.X;
+                        mobjDrawingSize.Height = mobjDrawingCoordsEnd.Y - mobjDrawingCoordsStart.Y;
+                        mobjDrawingRectangle = new Rectangle(mobjDrawingCoordsStart, mobjDrawingSize);
+                        mobjGrafika.FillRectangle(lobjStetecForeColor, mobjDrawingRectangle);
+                        mobjGrafika.DrawRectangle(lobjPeroBackColor, mobjDrawingRectangle);
                         break;
                     
                 }
@@ -183,23 +175,50 @@ namespace MSPaint2024
                 // nastavit kdo mi to posila
                 lobjPanel = (Panel)sender;
 
-                // nastavit spravnou barvu
+                // nastavit ForeColor barvu
                 if (e.Button == MouseButtons.Left)
                 {
-                    //zobrazit
+                    // zobrazit
                     pnForeColor.BackColor = lobjPanel.BackColor;
 
                     // zapsat
                     mobjForeColor=lobjPanel.BackColor;
                 }
+
+                // nastavit BackColor barvu
+                if (e.Button == MouseButtons.Right)
+                {
+                    pnBackColor.BackColor = lobjPanel.BackColor;
+
+                    mobjBackColor=lobjPanel.BackColor;
+                }
+
+
             }
             catch (Exception ex)
             {
               
             }
         }
-        private void btClick_Nastroj(object sender, MouseEventArgs e)
+
+        //
+        // vybrani nastroje
+        //
+        private void btTool_Click(object sender, EventArgs e)
         {
+            Button lobjTool = (Button)sender;
+
+            switch (lobjTool.Text)
+            {
+                case "Line":
+                    menActualTool = enTools.Line;
+                    break;
+
+                case "Rectangle":
+                    menActualTool = enTools.Box;
+                    break;
+                    
+            }
 
         }
     }

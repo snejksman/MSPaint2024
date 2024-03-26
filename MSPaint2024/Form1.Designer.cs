@@ -47,6 +47,7 @@
             this.pnColorLightGrey = new System.Windows.Forms.Panel();
             this.pnColorBlack = new System.Windows.Forms.Panel();
             this.gpVyberNastroje = new System.Windows.Forms.GroupBox();
+            this.btRectangle = new System.Windows.Forms.Button();
             this.btLine = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlatno)).BeginInit();
             this.ssBottom.SuspendLayout();
@@ -76,8 +77,6 @@
             this.ssBottom.Size = new System.Drawing.Size(1237, 22);
             this.ssBottom.TabIndex = 2;
             this.ssBottom.Text = "tsSouradniceMysi";
-            this.ssBottom.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
-            this.ssBottom.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ssBottom_MouseMove);
             // 
             // tsSouradniceMysi
             // 
@@ -116,6 +115,7 @@
             this.pnColorRed.Name = "pnColorRed";
             this.pnColorRed.Size = new System.Drawing.Size(22, 20);
             this.pnColorRed.TabIndex = 13;
+            this.pnColorRed.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
             // 
             // pnColorBrown
             // 
@@ -125,6 +125,7 @@
             this.pnColorBrown.Name = "pnColorBrown";
             this.pnColorBrown.Size = new System.Drawing.Size(22, 20);
             this.pnColorBrown.TabIndex = 13;
+            this.pnColorBrown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
             // 
             // pnColorOrange
             // 
@@ -134,6 +135,7 @@
             this.pnColorOrange.Name = "pnColorOrange";
             this.pnColorOrange.Size = new System.Drawing.Size(22, 20);
             this.pnColorOrange.TabIndex = 13;
+            this.pnColorOrange.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
             // 
             // pnColorWhite
             // 
@@ -153,6 +155,7 @@
             this.pnColorYellow.Name = "pnColorYellow";
             this.pnColorYellow.Size = new System.Drawing.Size(22, 20);
             this.pnColorYellow.TabIndex = 12;
+            this.pnColorYellow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
             // 
             // pnColorMagenta
             // 
@@ -162,6 +165,7 @@
             this.pnColorMagenta.Name = "pnColorMagenta";
             this.pnColorMagenta.Size = new System.Drawing.Size(22, 20);
             this.pnColorMagenta.TabIndex = 12;
+            this.pnColorMagenta.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
             // 
             // pnColorBlue
             // 
@@ -171,6 +175,7 @@
             this.pnColorBlue.Name = "pnColorBlue";
             this.pnColorBlue.Size = new System.Drawing.Size(22, 20);
             this.pnColorBlue.TabIndex = 12;
+            this.pnColorBlue.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
             // 
             // pnColorCyan
             // 
@@ -242,23 +247,38 @@
             // 
             // gpVyberNastroje
             // 
+            this.gpVyberNastroje.Controls.Add(this.btRectangle);
             this.gpVyberNastroje.Controls.Add(this.btLine);
             this.gpVyberNastroje.Location = new System.Drawing.Point(970, 145);
             this.gpVyberNastroje.Name = "gpVyberNastroje";
-            this.gpVyberNastroje.Size = new System.Drawing.Size(241, 65);
+            this.gpVyberNastroje.Size = new System.Drawing.Size(241, 84);
             this.gpVyberNastroje.TabIndex = 4;
             this.gpVyberNastroje.TabStop = false;
             this.gpVyberNastroje.Text = "Výběr Nástroje";
+            // 
+            // btRectangle
+            // 
+            this.btRectangle.BackColor = System.Drawing.Color.White;
+            this.btRectangle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btRectangle.Location = new System.Drawing.Point(85, 28);
+            this.btRectangle.Name = "btRectangle";
+            this.btRectangle.Size = new System.Drawing.Size(64, 37);
+            this.btRectangle.TabIndex = 6;
+            this.btRectangle.Text = "Rectangle";
+            this.btRectangle.UseVisualStyleBackColor = false;
+            this.btRectangle.Click += new System.EventHandler(this.btTool_Click);
             // 
             // btLine
             // 
             this.btLine.BackColor = System.Drawing.Color.White;
             this.btLine.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btLine.Location = new System.Drawing.Point(15, 19);
+            this.btLine.Location = new System.Drawing.Point(15, 28);
             this.btLine.Name = "btLine";
-            this.btLine.Size = new System.Drawing.Size(37, 37);
+            this.btLine.Size = new System.Drawing.Size(64, 37);
             this.btLine.TabIndex = 5;
+            this.btLine.Text = "Line";
             this.btLine.UseVisualStyleBackColor = false;
+            this.btLine.Click += new System.EventHandler(this.btTool_Click);
             // 
             // Form1
             // 
@@ -273,7 +293,6 @@
             this.Name = "Form1";
             this.Text = "MS Paint 2024";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pbPlatno)).EndInit();
             this.ssBottom.ResumeLayout(false);
             this.ssBottom.PerformLayout();
@@ -306,6 +325,7 @@
         private System.Windows.Forms.Panel pnColorBlue;
         private System.Windows.Forms.GroupBox gpVyberNastroje;
         private System.Windows.Forms.Button btLine;
+        private System.Windows.Forms.Button btRectangle;
     }
 }
 
