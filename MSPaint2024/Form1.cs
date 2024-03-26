@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace MSPaint2024
 {
-    public partial class Form1 : Form
+    public partial class fOkno : Form
     {
         // kreslici objekt grafiky - pointer
         Graphics mobjGrafika;
@@ -40,7 +40,7 @@ namespace MSPaint2024
         // konstruktor
         //
 
-        public Form1()
+        public fOkno()
         {
             InitializeComponent();
 
@@ -142,6 +142,7 @@ namespace MSPaint2024
         {
             try
             {
+                // vytvoreni potrebnych per a stetcu
                 Pen lobjPero;
                 lobjPero = new Pen(mobjForeColor);
                 lobjPero.Width = tbWidth.Value;
@@ -182,6 +183,7 @@ namespace MSPaint2024
                         mobjGrafika.DrawEllipse(lobjPeroBackColor, mobjDrawingRectangle);
                         break;
 
+                        // volne kresleni perem
                     case enTools.Pen:
                         mobjDrawingFreeSize.Width = tbWidth.Value;
                         mobjDrawingFreeSize.Height = tbWidth.Value;

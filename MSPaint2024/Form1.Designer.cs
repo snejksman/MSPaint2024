@@ -1,6 +1,6 @@
 ﻿namespace MSPaint2024
 {
-    partial class Form1
+    partial class fOkno
     {
         /// <summary>
         /// Vyžaduje se proměnná návrháře.
@@ -47,12 +47,12 @@
             this.pnColorLightGrey = new System.Windows.Forms.Panel();
             this.pnColorBlack = new System.Windows.Forms.Panel();
             this.gpVyberNastroje = new System.Windows.Forms.GroupBox();
+            this.btEllipse = new System.Windows.Forms.Button();
+            this.btPen = new System.Windows.Forms.Button();
             this.btRectangle = new System.Windows.Forms.Button();
             this.btLine = new System.Windows.Forms.Button();
-            this.btPen = new System.Windows.Forms.Button();
             this.gpWidth = new System.Windows.Forms.GroupBox();
             this.tbWidth = new System.Windows.Forms.TrackBar();
-            this.btEllipse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlatno)).BeginInit();
             this.ssBottom.SuspendLayout();
             this.gpVyberBarvy.SuspendLayout();
@@ -63,6 +63,9 @@
             // 
             // pbPlatno
             // 
+            this.pbPlatno.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbPlatno.BackColor = System.Drawing.Color.White;
             this.pbPlatno.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pbPlatno.Location = new System.Drawing.Point(12, 12);
@@ -92,6 +95,7 @@
             // 
             // gpVyberBarvy
             // 
+            this.gpVyberBarvy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gpVyberBarvy.Controls.Add(this.pnColorRed);
             this.gpVyberBarvy.Controls.Add(this.pnColorBrown);
             this.gpVyberBarvy.Controls.Add(this.pnColorOrange);
@@ -253,6 +257,7 @@
             // 
             // gpVyberNastroje
             // 
+            this.gpVyberNastroje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gpVyberNastroje.Controls.Add(this.btEllipse);
             this.gpVyberNastroje.Controls.Add(this.btPen);
             this.gpVyberNastroje.Controls.Add(this.btRectangle);
@@ -263,6 +268,30 @@
             this.gpVyberNastroje.TabIndex = 4;
             this.gpVyberNastroje.TabStop = false;
             this.gpVyberNastroje.Text = "Výběr Nástroje";
+            // 
+            // btEllipse
+            // 
+            this.btEllipse.BackColor = System.Drawing.Color.White;
+            this.btEllipse.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btEllipse.Location = new System.Drawing.Point(85, 71);
+            this.btEllipse.Name = "btEllipse";
+            this.btEllipse.Size = new System.Drawing.Size(64, 37);
+            this.btEllipse.TabIndex = 8;
+            this.btEllipse.Text = "Ellipse";
+            this.btEllipse.UseVisualStyleBackColor = false;
+            this.btEllipse.Click += new System.EventHandler(this.btTool_Click);
+            // 
+            // btPen
+            // 
+            this.btPen.BackColor = System.Drawing.Color.White;
+            this.btPen.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btPen.Location = new System.Drawing.Point(85, 28);
+            this.btPen.Name = "btPen";
+            this.btPen.Size = new System.Drawing.Size(64, 37);
+            this.btPen.TabIndex = 7;
+            this.btPen.Text = "Pen";
+            this.btPen.UseVisualStyleBackColor = false;
+            this.btPen.Click += new System.EventHandler(this.btTool_Click);
             // 
             // btRectangle
             // 
@@ -288,20 +317,9 @@
             this.btLine.UseVisualStyleBackColor = false;
             this.btLine.Click += new System.EventHandler(this.btTool_Click);
             // 
-            // btPen
-            // 
-            this.btPen.BackColor = System.Drawing.Color.White;
-            this.btPen.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btPen.Location = new System.Drawing.Point(85, 28);
-            this.btPen.Name = "btPen";
-            this.btPen.Size = new System.Drawing.Size(64, 37);
-            this.btPen.TabIndex = 7;
-            this.btPen.Text = "Pen";
-            this.btPen.UseVisualStyleBackColor = false;
-            this.btPen.Click += new System.EventHandler(this.btTool_Click);
-            // 
             // gpWidth
             // 
+            this.gpWidth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gpWidth.Controls.Add(this.tbWidth);
             this.gpWidth.Location = new System.Drawing.Point(970, 283);
             this.gpWidth.Name = "gpWidth";
@@ -321,19 +339,7 @@
             this.tbWidth.TabIndex = 0;
             this.tbWidth.Value = 2;
             // 
-            // btEllipse
-            // 
-            this.btEllipse.BackColor = System.Drawing.Color.White;
-            this.btEllipse.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btEllipse.Location = new System.Drawing.Point(85, 71);
-            this.btEllipse.Name = "btEllipse";
-            this.btEllipse.Size = new System.Drawing.Size(64, 37);
-            this.btEllipse.TabIndex = 8;
-            this.btEllipse.Text = "Ellipse";
-            this.btEllipse.UseVisualStyleBackColor = false;
-            this.btEllipse.Click += new System.EventHandler(this.btTool_Click);
-            // 
-            // Form1
+            // fOkno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -344,7 +350,7 @@
             this.Controls.Add(this.gpVyberBarvy);
             this.Controls.Add(this.ssBottom);
             this.Controls.Add(this.pbPlatno);
-            this.Name = "Form1";
+            this.Name = "fOkno";
             this.Text = "MS Paint 2024";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPlatno)).EndInit();
