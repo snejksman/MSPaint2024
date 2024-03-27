@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -181,14 +182,13 @@ namespace MSPaint2024
                         mobjGrafika.DrawEllipse(lobjPeroBackColor, mobjDrawingRectangle);
                         break;
 
-                        // volne kresleni perem
                     case enTools.Pen:
-                        mobjDrawingFreeSize.Width = tbWidth.Value;
-                        mobjDrawingFreeSize.Height = tbWidth.Value;
-                        mobjDrawingFreeRectangle = new Rectangle(mobjDrawingCoordsStart, mobjDrawingFreeSize);
-                        mobjGrafika.FillRectangle(lobjStetecForeColor, mobjDrawingFreeRectangle);
+
+                        // volne kresleni perem
+                        mobjGrafika.DrawLine(lobjPero, mobjDrawingCoordsStart, mobjDrawingCoordsEnd);
+                        mobjDrawingCoordsEnd = mobjDrawingCoordsStart;
                         break;
-                    
+                    // DOPLNIT VYNULOVNI KONCOVE COORD
                 }
             }
             catch (Exception ex)
@@ -266,6 +266,30 @@ namespace MSPaint2024
                 }
             }
             catch (Exception ex)           
+            {
+
+            }
+        }
+
+        //
+        // konec aplikace
+        //
+        private void tsmiKonec_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        //
+        // ulozit nakresleny obrazek
+        //
+        private void tsmiUlozit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+              //  pbPlatno.Image.Save("c:\\temp\\obrazek.jpg", );
+            }
+            catch (Exception ex)
             {
 
             }

@@ -54,10 +54,10 @@
             this.rbPen = new System.Windows.Forms.RadioButton();
             this.rbEllipse = new System.Windows.Forms.RadioButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.souborToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uložitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.otevřítToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.konecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiSoubor = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiUlozit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiOtevrit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiKonec = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlatno)).BeginInit();
             this.ssBottom.SuspendLayout();
             this.gpVyberBarvy.SuspendLayout();
@@ -346,40 +346,42 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.souborToolStripMenuItem});
+            this.tsmiSoubor});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1237, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // souborToolStripMenuItem
+            // tsmiSoubor
             // 
-            this.souborToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.uložitToolStripMenuItem,
-            this.otevřítToolStripMenuItem,
-            this.konecToolStripMenuItem});
-            this.souborToolStripMenuItem.Name = "souborToolStripMenuItem";
-            this.souborToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.souborToolStripMenuItem.Text = "Soubor";
+            this.tsmiSoubor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiUlozit,
+            this.tsmiOtevrit,
+            this.tsmiKonec});
+            this.tsmiSoubor.Name = "tsmiSoubor";
+            this.tsmiSoubor.Size = new System.Drawing.Size(57, 20);
+            this.tsmiSoubor.Text = "Soubor";
             // 
-            // uložitToolStripMenuItem
+            // tsmiUlozit
             // 
-            this.uložitToolStripMenuItem.Name = "uložitToolStripMenuItem";
-            this.uložitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.uložitToolStripMenuItem.Text = "Uložit";
+            this.tsmiUlozit.Name = "tsmiUlozit";
+            this.tsmiUlozit.Size = new System.Drawing.Size(180, 22);
+            this.tsmiUlozit.Text = "Uložit";
+            this.tsmiUlozit.Click += new System.EventHandler(this.tsmiUlozit_Click);
             // 
-            // otevřítToolStripMenuItem
+            // tsmiOtevrit
             // 
-            this.otevřítToolStripMenuItem.Name = "otevřítToolStripMenuItem";
-            this.otevřítToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.otevřítToolStripMenuItem.Text = "Otevřít";
+            this.tsmiOtevrit.Name = "tsmiOtevrit";
+            this.tsmiOtevrit.Size = new System.Drawing.Size(180, 22);
+            this.tsmiOtevrit.Text = "Otevřít";
             // 
-            // konecToolStripMenuItem
+            // tsmiKonec
             // 
-            this.konecToolStripMenuItem.Name = "konecToolStripMenuItem";
-            this.konecToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.konecToolStripMenuItem.Text = "Konec";
+            this.tsmiKonec.Name = "tsmiKonec";
+            this.tsmiKonec.Size = new System.Drawing.Size(180, 22);
+            this.tsmiKonec.Text = "Konec";
+            this.tsmiKonec.Click += new System.EventHandler(this.tsmiKonec_Click);
             // 
             // fOkno
             // 
@@ -441,10 +443,10 @@
         private System.Windows.Forms.RadioButton rbEllipse;
         private System.Windows.Forms.RadioButton rbPen;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem souborToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uložitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem otevřítToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem konecToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiSoubor;
+        private System.Windows.Forms.ToolStripMenuItem tsmiUlozit;
+        private System.Windows.Forms.ToolStripMenuItem tsmiOtevrit;
+        private System.Windows.Forms.ToolStripMenuItem tsmiKonec;
     }
 }
 
