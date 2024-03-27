@@ -46,19 +46,25 @@
             this.pnForeColor = new System.Windows.Forms.Panel();
             this.pnColorLightGrey = new System.Windows.Forms.Panel();
             this.pnColorBlack = new System.Windows.Forms.Panel();
-            this.gpVyberNastroje = new System.Windows.Forms.GroupBox();
-            this.btEllipse = new System.Windows.Forms.Button();
-            this.btPen = new System.Windows.Forms.Button();
-            this.btRectangle = new System.Windows.Forms.Button();
-            this.btLine = new System.Windows.Forms.Button();
             this.gpWidth = new System.Windows.Forms.GroupBox();
             this.tbWidth = new System.Windows.Forms.TrackBar();
+            this.gpNastroje = new System.Windows.Forms.GroupBox();
+            this.radioBtLine = new System.Windows.Forms.RadioButton();
+            this.rbRectangle = new System.Windows.Forms.RadioButton();
+            this.rbPen = new System.Windows.Forms.RadioButton();
+            this.rbEllipse = new System.Windows.Forms.RadioButton();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.souborToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uložitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otevřítToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.konecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlatno)).BeginInit();
             this.ssBottom.SuspendLayout();
             this.gpVyberBarvy.SuspendLayout();
-            this.gpVyberNastroje.SuspendLayout();
             this.gpWidth.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbWidth)).BeginInit();
+            this.gpNastroje.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbPlatno
@@ -68,9 +74,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbPlatno.BackColor = System.Drawing.Color.White;
             this.pbPlatno.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbPlatno.Location = new System.Drawing.Point(12, 12);
+            this.pbPlatno.Location = new System.Drawing.Point(12, 39);
             this.pbPlatno.Name = "pbPlatno";
-            this.pbPlatno.Size = new System.Drawing.Size(952, 538);
+            this.pbPlatno.Size = new System.Drawing.Size(952, 511);
             this.pbPlatno.TabIndex = 0;
             this.pbPlatno.TabStop = false;
             this.pbPlatno.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbPlatno_MouseDown);
@@ -110,7 +116,7 @@
             this.gpVyberBarvy.Controls.Add(this.pnForeColor);
             this.gpVyberBarvy.Controls.Add(this.pnColorLightGrey);
             this.gpVyberBarvy.Controls.Add(this.pnColorBlack);
-            this.gpVyberBarvy.Location = new System.Drawing.Point(970, 12);
+            this.gpVyberBarvy.Location = new System.Drawing.Point(970, 39);
             this.gpVyberBarvy.Name = "gpVyberBarvy";
             this.gpVyberBarvy.Size = new System.Drawing.Size(255, 120);
             this.gpVyberBarvy.TabIndex = 3;
@@ -255,73 +261,11 @@
             this.pnColorBlack.TabIndex = 7;
             this.pnColorBlack.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnColor_MouseDown);
             // 
-            // gpVyberNastroje
-            // 
-            this.gpVyberNastroje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gpVyberNastroje.Controls.Add(this.btEllipse);
-            this.gpVyberNastroje.Controls.Add(this.btPen);
-            this.gpVyberNastroje.Controls.Add(this.btRectangle);
-            this.gpVyberNastroje.Controls.Add(this.btLine);
-            this.gpVyberNastroje.Location = new System.Drawing.Point(970, 145);
-            this.gpVyberNastroje.Name = "gpVyberNastroje";
-            this.gpVyberNastroje.Size = new System.Drawing.Size(241, 132);
-            this.gpVyberNastroje.TabIndex = 4;
-            this.gpVyberNastroje.TabStop = false;
-            this.gpVyberNastroje.Text = "Výběr Nástroje";
-            // 
-            // btEllipse
-            // 
-            this.btEllipse.BackColor = System.Drawing.Color.White;
-            this.btEllipse.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btEllipse.Location = new System.Drawing.Point(85, 71);
-            this.btEllipse.Name = "btEllipse";
-            this.btEllipse.Size = new System.Drawing.Size(64, 37);
-            this.btEllipse.TabIndex = 8;
-            this.btEllipse.Text = "Ellipse";
-            this.btEllipse.UseVisualStyleBackColor = false;
-            this.btEllipse.Click += new System.EventHandler(this.btTool_Click);
-            // 
-            // btPen
-            // 
-            this.btPen.BackColor = System.Drawing.Color.White;
-            this.btPen.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btPen.Location = new System.Drawing.Point(85, 28);
-            this.btPen.Name = "btPen";
-            this.btPen.Size = new System.Drawing.Size(64, 37);
-            this.btPen.TabIndex = 7;
-            this.btPen.Text = "Pen";
-            this.btPen.UseVisualStyleBackColor = false;
-            this.btPen.Click += new System.EventHandler(this.btTool_Click);
-            // 
-            // btRectangle
-            // 
-            this.btRectangle.BackColor = System.Drawing.Color.White;
-            this.btRectangle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btRectangle.Location = new System.Drawing.Point(15, 71);
-            this.btRectangle.Name = "btRectangle";
-            this.btRectangle.Size = new System.Drawing.Size(64, 37);
-            this.btRectangle.TabIndex = 6;
-            this.btRectangle.Text = "Rectangle";
-            this.btRectangle.UseVisualStyleBackColor = false;
-            this.btRectangle.Click += new System.EventHandler(this.btTool_Click);
-            // 
-            // btLine
-            // 
-            this.btLine.BackColor = System.Drawing.Color.White;
-            this.btLine.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btLine.Location = new System.Drawing.Point(15, 28);
-            this.btLine.Name = "btLine";
-            this.btLine.Size = new System.Drawing.Size(64, 37);
-            this.btLine.TabIndex = 5;
-            this.btLine.Text = "Line";
-            this.btLine.UseVisualStyleBackColor = false;
-            this.btLine.Click += new System.EventHandler(this.btTool_Click);
-            // 
             // gpWidth
             // 
             this.gpWidth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gpWidth.Controls.Add(this.tbWidth);
-            this.gpWidth.Location = new System.Drawing.Point(970, 283);
+            this.gpWidth.Location = new System.Drawing.Point(970, 253);
             this.gpWidth.Name = "gpWidth";
             this.gpWidth.Size = new System.Drawing.Size(230, 51);
             this.gpWidth.TabIndex = 5;
@@ -339,17 +283,117 @@
             this.tbWidth.TabIndex = 0;
             this.tbWidth.Value = 2;
             // 
+            // gpNastroje
+            // 
+            this.gpNastroje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gpNastroje.Controls.Add(this.rbEllipse);
+            this.gpNastroje.Controls.Add(this.rbPen);
+            this.gpNastroje.Controls.Add(this.rbRectangle);
+            this.gpNastroje.Controls.Add(this.radioBtLine);
+            this.gpNastroje.Location = new System.Drawing.Point(970, 165);
+            this.gpNastroje.Name = "gpNastroje";
+            this.gpNastroje.Size = new System.Drawing.Size(255, 82);
+            this.gpNastroje.TabIndex = 6;
+            this.gpNastroje.TabStop = false;
+            this.gpNastroje.Text = "Nástroje";
+            // 
+            // radioBtLine
+            // 
+            this.radioBtLine.AutoSize = true;
+            this.radioBtLine.Checked = true;
+            this.radioBtLine.Location = new System.Drawing.Point(15, 19);
+            this.radioBtLine.Name = "radioBtLine";
+            this.radioBtLine.Size = new System.Drawing.Size(45, 17);
+            this.radioBtLine.TabIndex = 0;
+            this.radioBtLine.TabStop = true;
+            this.radioBtLine.Text = "Line";
+            this.radioBtLine.UseVisualStyleBackColor = true;
+            this.radioBtLine.CheckedChanged += new System.EventHandler(this.rbTool_CheckedChanged);
+            // 
+            // rbRectangle
+            // 
+            this.rbRectangle.AutoSize = true;
+            this.rbRectangle.Location = new System.Drawing.Point(92, 19);
+            this.rbRectangle.Name = "rbRectangle";
+            this.rbRectangle.Size = new System.Drawing.Size(74, 17);
+            this.rbRectangle.TabIndex = 1;
+            this.rbRectangle.Text = "Rectangle";
+            this.rbRectangle.UseVisualStyleBackColor = true;
+            this.rbRectangle.CheckedChanged += new System.EventHandler(this.rbTool_CheckedChanged);
+            // 
+            // rbPen
+            // 
+            this.rbPen.AutoSize = true;
+            this.rbPen.Location = new System.Drawing.Point(15, 42);
+            this.rbPen.Name = "rbPen";
+            this.rbPen.Size = new System.Drawing.Size(44, 17);
+            this.rbPen.TabIndex = 2;
+            this.rbPen.Text = "Pen";
+            this.rbPen.UseVisualStyleBackColor = true;
+            this.rbPen.CheckedChanged += new System.EventHandler(this.rbTool_CheckedChanged);
+            // 
+            // rbEllipse
+            // 
+            this.rbEllipse.AutoSize = true;
+            this.rbEllipse.Location = new System.Drawing.Point(92, 42);
+            this.rbEllipse.Name = "rbEllipse";
+            this.rbEllipse.Size = new System.Drawing.Size(55, 17);
+            this.rbEllipse.TabIndex = 3;
+            this.rbEllipse.Text = "Ellipse";
+            this.rbEllipse.UseVisualStyleBackColor = true;
+            this.rbEllipse.CheckedChanged += new System.EventHandler(this.rbTool_CheckedChanged);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.souborToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1237, 24);
+            this.menuStrip1.TabIndex = 7;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // souborToolStripMenuItem
+            // 
+            this.souborToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.uložitToolStripMenuItem,
+            this.otevřítToolStripMenuItem,
+            this.konecToolStripMenuItem});
+            this.souborToolStripMenuItem.Name = "souborToolStripMenuItem";
+            this.souborToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.souborToolStripMenuItem.Text = "Soubor";
+            // 
+            // uložitToolStripMenuItem
+            // 
+            this.uložitToolStripMenuItem.Name = "uložitToolStripMenuItem";
+            this.uložitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uložitToolStripMenuItem.Text = "Uložit";
+            // 
+            // otevřítToolStripMenuItem
+            // 
+            this.otevřítToolStripMenuItem.Name = "otevřítToolStripMenuItem";
+            this.otevřítToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.otevřítToolStripMenuItem.Text = "Otevřít";
+            // 
+            // konecToolStripMenuItem
+            // 
+            this.konecToolStripMenuItem.Name = "konecToolStripMenuItem";
+            this.konecToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.konecToolStripMenuItem.Text = "Konec";
+            // 
             // fOkno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1237, 581);
+            this.Controls.Add(this.gpNastroje);
             this.Controls.Add(this.gpWidth);
-            this.Controls.Add(this.gpVyberNastroje);
             this.Controls.Add(this.gpVyberBarvy);
             this.Controls.Add(this.ssBottom);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pbPlatno);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "fOkno";
             this.Text = "MS Paint 2024";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -357,10 +401,13 @@
             this.ssBottom.ResumeLayout(false);
             this.ssBottom.PerformLayout();
             this.gpVyberBarvy.ResumeLayout(false);
-            this.gpVyberNastroje.ResumeLayout(false);
             this.gpWidth.ResumeLayout(false);
             this.gpWidth.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbWidth)).EndInit();
+            this.gpNastroje.ResumeLayout(false);
+            this.gpNastroje.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,13 +433,18 @@
         private System.Windows.Forms.Panel pnColorYellow;
         private System.Windows.Forms.Panel pnColorMagenta;
         private System.Windows.Forms.Panel pnColorBlue;
-        private System.Windows.Forms.GroupBox gpVyberNastroje;
-        private System.Windows.Forms.Button btLine;
-        private System.Windows.Forms.Button btRectangle;
-        private System.Windows.Forms.Button btPen;
         private System.Windows.Forms.GroupBox gpWidth;
         private System.Windows.Forms.TrackBar tbWidth;
-        private System.Windows.Forms.Button btEllipse;
+        private System.Windows.Forms.GroupBox gpNastroje;
+        private System.Windows.Forms.RadioButton radioBtLine;
+        private System.Windows.Forms.RadioButton rbRectangle;
+        private System.Windows.Forms.RadioButton rbEllipse;
+        private System.Windows.Forms.RadioButton rbPen;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem souborToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uložitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem otevřítToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem konecToolStripMenuItem;
     }
 }
 

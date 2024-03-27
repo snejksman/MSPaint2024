@@ -154,21 +154,22 @@ namespace MSPaint2024
                 lobjPeroBackColor = new Pen(mobjBackColor);
                 lobjPeroBackColor.Width = tbWidth.Value;
 
+                mobjDrawingSize.Width = mobjDrawingCoordsEnd.X - mobjDrawingCoordsStart.X;
+                mobjDrawingSize.Height = mobjDrawingCoordsEnd.Y - mobjDrawingCoordsStart.Y;
+                mobjDrawingRectangle = new Rectangle(mobjDrawingCoordsStart, mobjDrawingSize);
+
                 // vybrat co kreslim
                 switch (menActualTool)
                 {
                     case enTools.Line:
 
                         // nakresli caru
-                         mobjGrafika.DrawLine(lobjPero, mobjDrawingCoordsStart, mobjDrawingCoordsEnd);
+                        mobjGrafika.DrawLine(lobjPero, mobjDrawingCoordsStart, mobjDrawingCoordsEnd);
                         break;
 
                     case enTools.Rectangle:
 
                         // vypln obdelnik
-                        mobjDrawingSize.Width = mobjDrawingCoordsEnd.X - mobjDrawingCoordsStart.X;
-                        mobjDrawingSize.Height = mobjDrawingCoordsEnd.Y - mobjDrawingCoordsStart.Y;
-                        mobjDrawingRectangle = new Rectangle(mobjDrawingCoordsStart, mobjDrawingSize);
                         mobjGrafika.FillRectangle(lobjStetecForeColor, mobjDrawingRectangle);
                         mobjGrafika.DrawRectangle(lobjPeroBackColor, mobjDrawingRectangle);
                         break;
@@ -176,9 +177,6 @@ namespace MSPaint2024
                     case enTools.Ellipse:
 
                         // vypln elipsu
-                        mobjDrawingSize.Width = mobjDrawingCoordsEnd.X - mobjDrawingCoordsStart.X;
-                        mobjDrawingSize.Height = mobjDrawingCoordsEnd.Y - mobjDrawingCoordsStart.Y;
-                        mobjDrawingRectangle = new Rectangle(mobjDrawingCoordsStart, mobjDrawingSize);
                         mobjGrafika.FillEllipse(lobjStetecForeColor, mobjDrawingRectangle);
                         mobjGrafika.DrawEllipse(lobjPeroBackColor, mobjDrawingRectangle);
                         break;
@@ -188,7 +186,7 @@ namespace MSPaint2024
                         mobjDrawingFreeSize.Width = tbWidth.Value;
                         mobjDrawingFreeSize.Height = tbWidth.Value;
                         mobjDrawingFreeRectangle = new Rectangle(mobjDrawingCoordsStart, mobjDrawingFreeSize);
-                        mobjGrafika.FillEllipse(lobjStetecForeColor, mobjDrawingFreeRectangle);
+                        mobjGrafika.FillRectangle(lobjStetecForeColor, mobjDrawingFreeRectangle);
                         break;
                     
                 }
@@ -240,30 +238,37 @@ namespace MSPaint2024
         //
         // vybrani nastroje
         //
-        private void btTool_Click(object sender, EventArgs e)
+
+        private void rbTool_CheckedChanged(object sender, EventArgs e)
         {
-            Button lobjTool = (Button)sender;
-
-            switch (lobjTool.Text)
+            try
             {
-                case "Line":
-                    menActualTool = enTools.Line;
-                    break;
+                RadioButton lobjTool = (RadioButton)sender;
 
-                case "Rectangle":
-                    menActualTool = enTools.Rectangle;
-                    break;
+                switch (lobjTool.Text)
+                {
+                    case "Line":
+                        menActualTool = enTools.Line;
+                        break;
 
-                case "Pen":
-                    menActualTool = enTools.Pen;
-                    break;
+                    case "Rectangle":
+                        menActualTool = enTools.Rectangle;
+                        break;
 
-                case "Ellipse":
-                    menActualTool = enTools.Ellipse;
-                    break;
+                    case "Pen":
+                        menActualTool = enTools.Pen;
+                        break;
+
+                    case "Ellipse":
+                        menActualTool = enTools.Ellipse;
+                        break;
+
+                }
+            }
+            catch (Exception ex)           
+            {
 
             }
-
         }
     }
 }
