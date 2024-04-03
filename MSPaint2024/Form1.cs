@@ -15,6 +15,9 @@ namespace MSPaint2024
     {
         // kreslici objekt grafiky - pointer
         Graphics mobjGrafika;
+
+        // kreslici objekt v pameti
+        Bitmap mobjBitmapa;
         
         // nastroj na kresleni
         enum enTools { Line, Rectangle, Ellipse, Pen }
@@ -32,10 +35,6 @@ namespace MSPaint2024
         // rozmery obdelniku
         Rectangle mobjDrawingRectangle;
         Size mobjDrawingSize;
-
-        // promenne pro volne kresleni
-        Rectangle mobjDrawingFreeRectangle;
-        Size mobjDrawingFreeSize;
 
         //
         // konstruktor
@@ -293,6 +292,19 @@ namespace MSPaint2024
             {
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Bitmap a;
+            Graphics b;
+
+            a = new Bitmap(pbPlatno.Width, pbPlatno.Height);
+            b = Graphics.FromImage(a);
+            b.DrawLine(Pens.Orange, 20, 20, 200, 200);
+            mobjGrafika.DrawImage(a, 0, 0);
+
+
         }
     }
 }

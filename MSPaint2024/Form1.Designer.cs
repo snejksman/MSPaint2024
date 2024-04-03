@@ -49,15 +49,16 @@
             this.gpWidth = new System.Windows.Forms.GroupBox();
             this.tbWidth = new System.Windows.Forms.TrackBar();
             this.gpNastroje = new System.Windows.Forms.GroupBox();
-            this.radioBtLine = new System.Windows.Forms.RadioButton();
-            this.rbRectangle = new System.Windows.Forms.RadioButton();
-            this.rbPen = new System.Windows.Forms.RadioButton();
             this.rbEllipse = new System.Windows.Forms.RadioButton();
+            this.rbPen = new System.Windows.Forms.RadioButton();
+            this.rbRectangle = new System.Windows.Forms.RadioButton();
+            this.radioBtLine = new System.Windows.Forms.RadioButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiSoubor = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiUlozit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiOtevrit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiKonec = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlatno)).BeginInit();
             this.ssBottom.SuspendLayout();
             this.gpVyberBarvy.SuspendLayout();
@@ -297,29 +298,16 @@
             this.gpNastroje.TabStop = false;
             this.gpNastroje.Text = "Nástroje";
             // 
-            // radioBtLine
+            // rbEllipse
             // 
-            this.radioBtLine.AutoSize = true;
-            this.radioBtLine.Checked = true;
-            this.radioBtLine.Location = new System.Drawing.Point(15, 19);
-            this.radioBtLine.Name = "radioBtLine";
-            this.radioBtLine.Size = new System.Drawing.Size(45, 17);
-            this.radioBtLine.TabIndex = 0;
-            this.radioBtLine.TabStop = true;
-            this.radioBtLine.Text = "Line";
-            this.radioBtLine.UseVisualStyleBackColor = true;
-            this.radioBtLine.CheckedChanged += new System.EventHandler(this.rbTool_CheckedChanged);
-            // 
-            // rbRectangle
-            // 
-            this.rbRectangle.AutoSize = true;
-            this.rbRectangle.Location = new System.Drawing.Point(92, 19);
-            this.rbRectangle.Name = "rbRectangle";
-            this.rbRectangle.Size = new System.Drawing.Size(74, 17);
-            this.rbRectangle.TabIndex = 1;
-            this.rbRectangle.Text = "Rectangle";
-            this.rbRectangle.UseVisualStyleBackColor = true;
-            this.rbRectangle.CheckedChanged += new System.EventHandler(this.rbTool_CheckedChanged);
+            this.rbEllipse.AutoSize = true;
+            this.rbEllipse.Location = new System.Drawing.Point(92, 42);
+            this.rbEllipse.Name = "rbEllipse";
+            this.rbEllipse.Size = new System.Drawing.Size(55, 17);
+            this.rbEllipse.TabIndex = 3;
+            this.rbEllipse.Text = "Ellipse";
+            this.rbEllipse.UseVisualStyleBackColor = true;
+            this.rbEllipse.CheckedChanged += new System.EventHandler(this.rbTool_CheckedChanged);
             // 
             // rbPen
             // 
@@ -332,16 +320,29 @@
             this.rbPen.UseVisualStyleBackColor = true;
             this.rbPen.CheckedChanged += new System.EventHandler(this.rbTool_CheckedChanged);
             // 
-            // rbEllipse
+            // rbRectangle
             // 
-            this.rbEllipse.AutoSize = true;
-            this.rbEllipse.Location = new System.Drawing.Point(92, 42);
-            this.rbEllipse.Name = "rbEllipse";
-            this.rbEllipse.Size = new System.Drawing.Size(55, 17);
-            this.rbEllipse.TabIndex = 3;
-            this.rbEllipse.Text = "Ellipse";
-            this.rbEllipse.UseVisualStyleBackColor = true;
-            this.rbEllipse.CheckedChanged += new System.EventHandler(this.rbTool_CheckedChanged);
+            this.rbRectangle.AutoSize = true;
+            this.rbRectangle.Location = new System.Drawing.Point(92, 19);
+            this.rbRectangle.Name = "rbRectangle";
+            this.rbRectangle.Size = new System.Drawing.Size(74, 17);
+            this.rbRectangle.TabIndex = 1;
+            this.rbRectangle.Text = "Rectangle";
+            this.rbRectangle.UseVisualStyleBackColor = true;
+            this.rbRectangle.CheckedChanged += new System.EventHandler(this.rbTool_CheckedChanged);
+            // 
+            // radioBtLine
+            // 
+            this.radioBtLine.AutoSize = true;
+            this.radioBtLine.Checked = true;
+            this.radioBtLine.Location = new System.Drawing.Point(15, 19);
+            this.radioBtLine.Name = "radioBtLine";
+            this.radioBtLine.Size = new System.Drawing.Size(45, 17);
+            this.radioBtLine.TabIndex = 0;
+            this.radioBtLine.TabStop = true;
+            this.radioBtLine.Text = "Line";
+            this.radioBtLine.UseVisualStyleBackColor = true;
+            this.radioBtLine.CheckedChanged += new System.EventHandler(this.rbTool_CheckedChanged);
             // 
             // menuStrip1
             // 
@@ -366,22 +367,32 @@
             // tsmiUlozit
             // 
             this.tsmiUlozit.Name = "tsmiUlozit";
-            this.tsmiUlozit.Size = new System.Drawing.Size(180, 22);
+            this.tsmiUlozit.Size = new System.Drawing.Size(110, 22);
             this.tsmiUlozit.Text = "Uložit";
             this.tsmiUlozit.Click += new System.EventHandler(this.tsmiUlozit_Click);
             // 
             // tsmiOtevrit
             // 
             this.tsmiOtevrit.Name = "tsmiOtevrit";
-            this.tsmiOtevrit.Size = new System.Drawing.Size(180, 22);
+            this.tsmiOtevrit.Size = new System.Drawing.Size(110, 22);
             this.tsmiOtevrit.Text = "Otevřít";
             // 
             // tsmiKonec
             // 
             this.tsmiKonec.Name = "tsmiKonec";
-            this.tsmiKonec.Size = new System.Drawing.Size(180, 22);
+            this.tsmiKonec.Size = new System.Drawing.Size(110, 22);
             this.tsmiKonec.Text = "Konec";
             this.tsmiKonec.Click += new System.EventHandler(this.tsmiKonec_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1048, 425);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 66);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // fOkno
             // 
@@ -389,6 +400,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1237, 581);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.gpNastroje);
             this.Controls.Add(this.gpWidth);
             this.Controls.Add(this.gpVyberBarvy);
@@ -447,6 +459,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiUlozit;
         private System.Windows.Forms.ToolStripMenuItem tsmiOtevrit;
         private System.Windows.Forms.ToolStripMenuItem tsmiKonec;
+        private System.Windows.Forms.Button button1;
     }
 }
 
