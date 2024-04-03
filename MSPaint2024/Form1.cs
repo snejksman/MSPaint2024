@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,7 @@ namespace MSPaint2024
 
         // kreslici objekt v pameti
         Bitmap mobjBitmapa;
+        Graphics mobjGrafikaVram;
         
         // nastroj na kresleni
         enum enTools { Line, Rectangle, Ellipse, Pen }
@@ -58,6 +60,11 @@ namespace MSPaint2024
         {
             //vytvoreni grafiky na pictureboxu
             mobjGrafika = pbPlatno.CreateGraphics();
+
+            // vytvoreni grafiky v pameti
+            mobjBitmapa = new Bitmap(pbPlatno.Width, pbPlatno.Height);
+            mobjGrafikaVram = Graphics.FromImage(mobjBitmapa);
+            mobjGrafikaVram.Clear(Color.White);
         }
 
         //
@@ -70,6 +77,10 @@ namespace MSPaint2024
                 // souradnice mysi do statusu
                 tsSouradniceMysi.Text = "x:" + e.X.ToString() + " y:" + e.Y.ToString();
 
+                mobjDrawingCoordsStart.X = e.X;
+                mobjDrawingCoordsStart.Y = e.Y;
+
+
                 // volne kresleni
                 if (menActualTool == enTools.Pen)
                 { 
@@ -77,9 +88,20 @@ namespace MSPaint2024
                     {
                         mobjDrawingCoordsStart.X = e.X;
                         mobjDrawingCoordsStart.Y = e.Y;
-                        NakresliObjekt();
+
+                        // nakresli objekt na picturebox
+                        mobjGrafika.DrawImage(mobjBitmapa, 0, 0);
+
+
+                        NakresliObjekt(mobjGrafikaVram);
+
+;
                     }
                 }
+                // nakresli objekt na picturebox
+                /* mobjGrafika.Clear(Color.White);
+                mobjGrafika.DrawImage(mobjBitmapa, 0, 0);
+                NakresliObjekt(mobjGrafika); */
             }
             catch(Exception ex) 
             {
@@ -123,10 +145,15 @@ namespace MSPaint2024
                     mobjDrawingCoordsEnd.X = e.X;
                     mobjDrawingCoordsEnd.Y = e.Y;
 
-                    NakresliObjekt();
+                    // nakresli objekt do pameti
+                    NakresliObjekt(mobjGrafikaVram);
+
+                    mobjGrafika.DrawImage(mobjBitmapa,0,0);
 
                     mbjImDrawing = false;
+
                 }
+
             }
             catch (Exception ex)
             {
@@ -138,7 +165,7 @@ namespace MSPaint2024
         //
         // nakresleni objektu
         //
-        private void NakresliObjekt()
+        private void NakresliObjekt(Graphics objGrafika)
         {
             try
             {
@@ -164,27 +191,27 @@ namespace MSPaint2024
                     case enTools.Line:
 
                         // nakresli caru
-                        mobjGrafika.DrawLine(lobjPero, mobjDrawingCoordsStart, mobjDrawingCoordsEnd);
+                        objGrafika.DrawLine(lobjPero, mobjDrawingCoordsStart, mobjDrawingCoordsEnd);
                         break;
 
                     case enTools.Rectangle:
 
                         // vypln obdelnik
-                        mobjGrafika.FillRectangle(lobjStetecForeColor, mobjDrawingRectangle);
-                        mobjGrafika.DrawRectangle(lobjPeroBackColor, mobjDrawingRectangle);
+                        objGrafika.FillRectangle(lobjStetecForeColor, mobjDrawingRectangle);
+                        objGrafika.DrawRectangle(lobjPeroBackColor, mobjDrawingRectangle);
                         break;
 
                     case enTools.Ellipse:
 
                         // vypln elipsu
-                        mobjGrafika.FillEllipse(lobjStetecForeColor, mobjDrawingRectangle);
-                        mobjGrafika.DrawEllipse(lobjPeroBackColor, mobjDrawingRectangle);
+                        objGrafika.FillEllipse(lobjStetecForeColor, mobjDrawingRectangle);
+                        objGrafika.DrawEllipse(lobjPeroBackColor, mobjDrawingRectangle);
                         break;
 
                     case enTools.Pen:
 
                         // volne kresleni perem
-                        mobjGrafika.DrawLine(lobjPero, mobjDrawingCoordsStart, mobjDrawingCoordsEnd);
+                        objGrafika.DrawLine(lobjPero, mobjDrawingCoordsStart, mobjDrawingCoordsEnd);
                         mobjDrawingCoordsEnd = mobjDrawingCoordsStart;
                         break;
                     // DOPLNIT VYNULOVNI KONCOVE COORD
@@ -194,6 +221,7 @@ namespace MSPaint2024
             {
                 
             }
+
         }
 
         //
@@ -285,8 +313,9 @@ namespace MSPaint2024
         {
             try
             {
+                saveFileDialog1.ShowDialog();
 
-              //  pbPlatno.Image.Save("c:\\temp\\obrazek.jpg", );
+                // mobjBitmapa.Save("c:\\temp\\obrazek.jpg", ImageFormat.Jpeg);
             }
             catch (Exception ex)
             {
@@ -305,6 +334,11 @@ namespace MSPaint2024
             mobjGrafika.DrawImage(a, 0, 0);
 
 
+        }
+        private void tsmiOtevrit_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+            // mobjGrafika.DrawImage(, 0, 0);
         }
     }
 }

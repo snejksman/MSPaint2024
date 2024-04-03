@@ -59,6 +59,8 @@
             this.tsmiOtevrit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiKonec = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlatno)).BeginInit();
             this.ssBottom.SuspendLayout();
             this.gpVyberBarvy.SuspendLayout();
@@ -374,8 +376,9 @@
             // tsmiOtevrit
             // 
             this.tsmiOtevrit.Name = "tsmiOtevrit";
-            this.tsmiOtevrit.Size = new System.Drawing.Size(110, 22);
+            this.tsmiOtevrit.Size = new System.Drawing.Size(180, 22);
             this.tsmiOtevrit.Text = "Otevřít";
+            this.tsmiOtevrit.Click += new System.EventHandler(this.tsmiOtevrit_Click);
             // 
             // tsmiKonec
             // 
@@ -393,6 +396,10 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // fOkno
             // 
@@ -460,6 +467,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiOtevrit;
         private System.Windows.Forms.ToolStripMenuItem tsmiKonec;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
