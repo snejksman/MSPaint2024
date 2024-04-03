@@ -322,19 +322,6 @@ namespace MSPaint2024
 
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Bitmap a;
-            Graphics b;
-
-            a = new Bitmap(pbPlatno.Width, pbPlatno.Height);
-            b = Graphics.FromImage(a);
-            b.DrawLine(Pens.Orange, 20, 20, 200, 200);
-            mobjGrafika.DrawImage(a, 0, 0);
-
-
-        }
         private void tsmiOtevrit_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
