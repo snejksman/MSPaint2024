@@ -76,9 +76,10 @@ namespace MSPaint2024
                 { 
                     if (mbjImDrawing == true)
                     {
+                        // zaznamenani coords
                         mobjDrawingCoordsStart.X = e.X;
                         mobjDrawingCoordsStart.Y = e.Y;
-                        NakresliObjekt();
+                        NakresliObjekt(e);
                     }
                 }
             }
@@ -124,7 +125,7 @@ namespace MSPaint2024
                     mobjDrawingCoordsEnd.X = e.X;
                     mobjDrawingCoordsEnd.Y = e.Y;
 
-                    NakresliObjekt();
+                    NakresliObjekt(e);
 
                     mbjImDrawing = false;
                 }
@@ -139,7 +140,7 @@ namespace MSPaint2024
         //
         // nakresleni objektu
         //
-        private void NakresliObjekt()
+        private void NakresliObjekt(MouseEventArgs e)
         {
             try
             {
@@ -183,12 +184,12 @@ namespace MSPaint2024
                         break;
 
                     case enTools.Pen:
-
+                        mobjDrawingCoordsEnd.X = e.X;
+                        mobjDrawingCoordsEnd.Y = e.Y;
                         // volne kresleni perem
                         mobjGrafika.DrawLine(lobjPero, mobjDrawingCoordsStart, mobjDrawingCoordsEnd);
-                        mobjDrawingCoordsEnd = mobjDrawingCoordsStart;
+                        mobjDrawingCoordsStart = mobjDrawingCoordsEnd;
                         break;
-                    // DOPLNIT VYNULOVNI KONCOVE COORD
                 }
             }
             catch (Exception ex)
