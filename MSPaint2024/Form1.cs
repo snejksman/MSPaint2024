@@ -88,16 +88,16 @@ namespace MSPaint2024
                     //Nakresli
                     NakresliObjekt(mobjGrafika);
 
-                    //kreslení pomocí pera
+                    // kresleni perem
                     if (menActualTool == enTools.Pen)
                     {
                         if (mbjImDrawing == true)
                         {
-                            //kreslení přímky mezi 2 po sobě jdoucími body
+                            // nakresleni cary
                             NakresliObjekt(mobjGrafikaVram);
                             mobjGrafika.DrawImage(mobjBitmapa, 0, 0);
                         }
-                        //přepis nového bodu
+                        // posunuti souradnic 
                         mobjDrawingCoordsStart = mobjDrawingCoordsEnd;
                     }
                 }
@@ -167,7 +167,7 @@ namespace MSPaint2024
         {
             try
             {
-                // vytvoreni potrebnych per a stetcu
+                // vytvoreni potrebnych per, stetcu a rectanglu
                 Pen lobjPero;
                 lobjPero = new Pen(mobjForeColor);
                 lobjPero.Width = tbWidth.Value;
@@ -206,6 +206,7 @@ namespace MSPaint2024
                         objGrafika.DrawEllipse(lobjPeroBackColor, mobjDrawingRectangle);
                         break;
 
+                        // kresli perem
                     case enTools.Pen:
                         objGrafika.DrawLine(lobjPero, mobjDrawingCoordsStart, mobjDrawingCoordsEnd);
                         break;
@@ -260,13 +261,14 @@ namespace MSPaint2024
         //
         // vybrani nastroje
         //
-
         private void rbTool_CheckedChanged(object sender, EventArgs e)
         {
             try
             {
+                // stanoveni radio buttonu jako sendera
                 RadioButton lobjTool = (RadioButton)sender;
 
+                // ktery nastroj je vybrany
                 switch (lobjTool.Text)
                 {
                     case "Line":
@@ -347,15 +349,19 @@ namespace MSPaint2024
         //
         private void tsmiOtevrit_Click(object sender, EventArgs e)
         {
+            Bitmap mobjBitmapOF;
             try
             {
+                // vyfiltrovani formatu souboru
+                openFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
 
-                // 
+                // nacteni obrazku z uloziste
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    mobjBitmapa = new Bitmap(openFileDialog.FileName);
-                    mobjGrafikaVram = Graphics.FromImage(mobjBitmapa);
-                    pbPlatno.Image = mobjBitmapa;
+                    // nahrani obrazku na bitmapu
+                    mobjBitmapOF = new Bitmap(openFileDialog.FileName);
+                    mobjGrafikaVram.DrawImage(mobjBitmapOF, 0, 0);
+                    mobjGrafika.DrawImage(mobjBitmapOF, 0, 0);
                 }
             }
             catch (Exception ex)
