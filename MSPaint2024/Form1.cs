@@ -75,38 +75,36 @@ namespace MSPaint2024
         {
             try
             {
-                // souradnice mysi do statusu
-                tsSouradniceMysi.Text = "x:" + e.X.ToString() + " y:" + e.Y.ToString();
+                //souřadnice myši do statusu
+                tsSouradniceMysi.Text = "x:" + e.X.ToString() + "y:" + e.Y.ToString();
+                if (e.Button == MouseButtons.Left)
+                {
+                    //zaznamenat souřadnice
+                    mobjDrawingCoordsEnd.X = e.X;
+                    mobjDrawingCoordsEnd.Y = e.Y;
 
-                mobjDrawingCoordsStart.X = e.X;
-                mobjDrawingCoordsStart.Y = e.Y;
+                    //nakopírovat na picturebox
+                    mobjGrafika.DrawImage(mobjBitmapa, 0, 0);
+                    //Nakresli
+                    NakresliObjekt(mobjGrafika);
 
-
-                // volne kresleni
-                if (menActualTool == enTools.Pen)
-                { 
-                    if (mbjImDrawing == true)
+                    //kreslení pomocí pera
+                    if (menActualTool == enTools.Pen)
                     {
-                        mobjDrawingCoordsStart.X = e.X;
-                        mobjDrawingCoordsStart.Y = e.Y;
-
-                        // nakresli objekt na picturebox
-                        mobjGrafika.DrawImage(mobjBitmapa, 0, 0);
-
-
-                        NakresliObjekt(mobjGrafikaVram);
-
-;
+                        if (mbjImDrawing == true)
+                        {
+                            //kreslení přímky mezi 2 po sobě jdoucími body
+                            NakresliObjekt(mobjGrafikaVram);
+                            mobjGrafika.DrawImage(mobjBitmapa, 0, 0);
+                        }
+                        //přepis nového bodu
+                        mobjDrawingCoordsStart = mobjDrawingCoordsEnd;
                     }
                 }
-                // nakresli objekt na picturebox
-                /* mobjGrafika.Clear(Color.White);
-                mobjGrafika.DrawImage(mobjBitmapa, 0, 0);
-                NakresliObjekt(mobjGrafika); */
             }
             catch(Exception ex) 
             {
-                
+                MessageBox.Show(":(");
             }
         }
         //
@@ -148,8 +146,7 @@ namespace MSPaint2024
 
                     // nakresli objekt do pameti
                     NakresliObjekt(mobjGrafikaVram);
-
-                    mobjGrafika.DrawImage(mobjBitmapa,0,0);
+                    mobjGrafika.DrawImage(mobjBitmapa, 0, 0);
 
                     mbjImDrawing = false;
 
@@ -210,17 +207,14 @@ namespace MSPaint2024
                         break;
 
                     case enTools.Pen:
-
-                        // volne kresleni perem
                         objGrafika.DrawLine(lobjPero, mobjDrawingCoordsStart, mobjDrawingCoordsEnd);
-                        mobjDrawingCoordsEnd = mobjDrawingCoordsStart;
                         break;
-                    // DOPLNIT VYNULOVNI KONCOVE COORD
+
                 }
             }
             catch (Exception ex)
             {
-                
+                MessageBox.Show(":(");
             }
 
         }
@@ -259,7 +253,7 @@ namespace MSPaint2024
             }
             catch (Exception ex)
             {
-              
+                MessageBox.Show(":(");
             }
         }
 
@@ -290,12 +284,11 @@ namespace MSPaint2024
                     case "Ellipse":
                         menActualTool = enTools.Ellipse;
                         break;
-
                 }
             }
             catch (Exception ex)           
             {
-
+                MessageBox.Show(":(");
             }
         }
 
@@ -314,20 +307,70 @@ namespace MSPaint2024
         {
             try
             {
-                saveFileDialog1.ShowDialog();
+                //výběr formátů
+                saveFileDialog.Filter = "PNG|*.png;|JPEG|*.jpeg;|BMP|*.bmp;|GIF|*.gif;";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Get the selected file path
+                    string selectedFilePath = saveFileDialog.FileName;
 
-                // mobjBitmapa.Save("c:\\temp\\obrazek.jpg", ImageFormat.Jpeg);
+                    // jaký formát byl vybrán
+                    ImageFormat format;
+                    switch (Path.GetExtension(selectedFilePath).ToLower())
+                    {
+                        case ".png":
+                            format = ImageFormat.Png;
+                            break;
+                        case ".jpg":
+                            format = ImageFormat.Jpeg;
+                            break;
+                        case ".jpeg":
+                            format = ImageFormat.Jpeg;
+                            break;
+                        case ".bmp":
+                            format = ImageFormat.Bmp;
+                            break;
+                        case ".gif":
+                            format = ImageFormat.Gif;
+                            break;
+                    }
+                }
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(":(");
             }
         }
+
+        //
+        // otevreni obrazku
+        //
         private void tsmiOtevrit_Click(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
-            // mobjGrafika.DrawImage(, 0, 0);
+            try
+            {
+
+                // 
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    mobjBitmapa = new Bitmap(openFileDialog.FileName);
+                    mobjGrafikaVram = Graphics.FromImage(mobjBitmapa);
+                    pbPlatno.Image = mobjBitmapa;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(":(");
+            }
+        }
+
+        //
+        // smazat vsechno nakreslene
+        //
+        private void btClear_Click(object sender, EventArgs e)
+        {
+            // vyplni pozadi bilou barvou
+            pbPlatno.BackColor = Color.White;
         }
     }
 }
-

@@ -49,6 +49,7 @@
             this.gpWidth = new System.Windows.Forms.GroupBox();
             this.tbWidth = new System.Windows.Forms.TrackBar();
             this.gpNastroje = new System.Windows.Forms.GroupBox();
+            this.btClear = new System.Windows.Forms.Button();
             this.rbEllipse = new System.Windows.Forms.RadioButton();
             this.rbPen = new System.Windows.Forms.RadioButton();
             this.rbRectangle = new System.Windows.Forms.RadioButton();
@@ -58,8 +59,8 @@
             this.tsmiUlozit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiOtevrit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiKonec = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlatno)).BeginInit();
             this.ssBottom.SuspendLayout();
             this.gpVyberBarvy.SuspendLayout();
@@ -217,7 +218,7 @@
             // 
             // pnBackColor
             // 
-            this.pnBackColor.BackColor = System.Drawing.Color.White;
+            this.pnBackColor.BackColor = System.Drawing.Color.Black;
             this.pnBackColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnBackColor.Location = new System.Drawing.Point(70, 28);
             this.pnBackColor.Name = "pnBackColor";
@@ -288,6 +289,7 @@
             // gpNastroje
             // 
             this.gpNastroje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gpNastroje.Controls.Add(this.btClear);
             this.gpNastroje.Controls.Add(this.rbEllipse);
             this.gpNastroje.Controls.Add(this.rbPen);
             this.gpNastroje.Controls.Add(this.rbRectangle);
@@ -298,6 +300,17 @@
             this.gpNastroje.TabIndex = 6;
             this.gpNastroje.TabStop = false;
             this.gpNastroje.Text = "Nástroje";
+            // 
+            // btClear
+            // 
+            this.btClear.BackColor = System.Drawing.Color.White;
+            this.btClear.Location = new System.Drawing.Point(174, 19);
+            this.btClear.Name = "btClear";
+            this.btClear.Size = new System.Drawing.Size(56, 40);
+            this.btClear.TabIndex = 4;
+            this.btClear.Text = "Clear";
+            this.btClear.UseVisualStyleBackColor = false;
+            this.btClear.Click += new System.EventHandler(this.btClear_Click);
             // 
             // rbEllipse
             // 
@@ -375,7 +388,7 @@
             // tsmiOtevrit
             // 
             this.tsmiOtevrit.Name = "tsmiOtevrit";
-            this.tsmiOtevrit.Size = new System.Drawing.Size(180, 22);
+            this.tsmiOtevrit.Size = new System.Drawing.Size(110, 22);
             this.tsmiOtevrit.Text = "Otevřít";
             this.tsmiOtevrit.Click += new System.EventHandler(this.tsmiOtevrit_Click);
             // 
@@ -386,9 +399,9 @@
             this.tsmiKonec.Text = "Konec";
             this.tsmiKonec.Click += new System.EventHandler(this.tsmiKonec_Click);
             // 
-            // openFileDialog1
+            // openFileDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog.FileName = "openFileDialog";
             // 
             // fOkno
             // 
@@ -406,6 +419,7 @@
             this.Name = "fOkno";
             this.Text = "MS Paint 2024";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPlatno)).EndInit();
             this.ssBottom.ResumeLayout(false);
             this.ssBottom.PerformLayout();
@@ -454,8 +468,9 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiUlozit;
         private System.Windows.Forms.ToolStripMenuItem tsmiOtevrit;
         private System.Windows.Forms.ToolStripMenuItem tsmiKonec;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button btClear;
     }
 }
 
