@@ -309,14 +309,14 @@ namespace MSPaint2024
         {
             try
             {
-                //výběr formátů
+                // povolene formaty
                 saveFileDialog.Filter = "PNG|*.png;|JPEG|*.jpeg;|BMP|*.bmp;|GIF|*.gif;";
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Get the selected file path
+                    // premena vybranneho souboru na string
                     string selectedFilePath = saveFileDialog.FileName;
 
-                    // jaký formát byl vybrán
+                    // format souboru
                     ImageFormat format;
                     switch (Path.GetExtension(selectedFilePath).ToLower())
                     {
@@ -375,8 +375,11 @@ namespace MSPaint2024
         //
         private void btClear_Click(object sender, EventArgs e)
         {
-            // vyplni pozadi bilou barvou
+            // smaz vsechno
             pbPlatno.BackColor = Color.White;
+            mobjGrafikaVram.Clear(Color.White);
+            mobjGrafika = mobjGrafikaVram;
+            mobjBitmapa = new Bitmap(pbPlatno.Width, pbPlatno.Height);
         }
     }
 }
