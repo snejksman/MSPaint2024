@@ -419,7 +419,7 @@
             this.Name = "fOkno";
             this.Text = "MS Paint 2024";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.ResizeEnd += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPlatno)).EndInit();
             this.ssBottom.ResumeLayout(false);
             this.ssBottom.PerformLayout();

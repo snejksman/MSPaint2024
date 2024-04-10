@@ -376,10 +376,8 @@ namespace MSPaint2024
         private void btClear_Click(object sender, EventArgs e)
         {
             // smaz vsechno
-            pbPlatno.BackColor = Color.White;
             mobjGrafikaVram.Clear(Color.White);
-            mobjGrafika = mobjGrafikaVram;
-            mobjBitmapa = new Bitmap(pbPlatno.Width, pbPlatno.Height);
+            pbPlatno.Image = mobjBitmapa;
         }
     }
 }
